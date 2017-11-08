@@ -29,14 +29,19 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
-
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         //config.enableSimpleBroker("/topic");
-        config.enableStompBrokerRelay("/topic/").setRelayHost("192.168.56.102").setRelayPort(61613);
+        config.enableStompBrokerRelay("/topic/").setRelayHost("elephant.rmq.cloudamqp.com").setRelayPort(61613).
+                setClientLogin("erccxcct").
+                setClientPasscode("P_A9hO89e3BFUlVH5wstu48oKIWASwiv").
+                setSystemLogin("erccxcct").
+                setSystemPasscode("P_A9hO89e3BFUlVH5wstu48oKIWASwiv").
+                setVirtualHost("erccxcct");
+                
         config.setApplicationDestinationPrefixes("/app");
     }
-
+   
 //    @Override
 //    public void registerStompEndpoints(StompEndpointRegistry registry) {
 //        registry.addEndpoint("/stompendpoint").withSockJS();
