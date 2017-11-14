@@ -28,6 +28,8 @@ public interface GameStateCache {
 
     public void createGame(int id,String word) throws GameCreationException;
     
+    
+    
     public HangmanGame getGame(int gameid) throws GameServicesException;
     
 }
